@@ -1,0 +1,27 @@
+spring.profiles.active: dev
+
+spring.profiles.include:
+  - mybatis
+
+# Server settings
+server:
+  port: 8081
+
+server.context-path: /northst
+
+---
+spring.profiles: dev
+
+spring.profiles.include:
+  - db-dev
+
+---
+spring.profiles: test
+spring.profiles.include:
+  - db-test
+
+---
+spring.profiles: prod
+
+spring.profiles.include:
+  - db-prod
