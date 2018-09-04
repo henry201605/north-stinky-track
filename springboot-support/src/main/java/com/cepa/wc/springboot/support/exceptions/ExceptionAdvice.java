@@ -40,14 +40,14 @@ public class ExceptionAdvice {
     }
 
     /**
-     * 拦截捕捉自定义异常 UnipusException.class
+     * 拦截捕捉自定义异常 CepaException.class
      *
      * @param ex
      * @return
      */
     @ResponseBody
     @ExceptionHandler(value = CepaException.class)
-    public Response UnipusExceptionHandler(CepaException ex) {
+    public Response CepaExceptionHandler(CepaException ex) {
         logger.debug(ex.getMessage(), ex);
         return BaseController.statusResponse(ex.getCode(), ex.getMsg());
     }
