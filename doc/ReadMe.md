@@ -10,7 +10,7 @@ http://{ip}:{port}/northst/resources/swagger/index.html
 
 ## backend
 
-### 抛异常 CepaException
+### 抛异常 NepaException
 
 ### current user
 
