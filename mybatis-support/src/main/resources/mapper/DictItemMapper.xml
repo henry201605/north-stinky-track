@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nstepa.wc.mybatis.support.mappers.DictItemMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.nstepa.wc.beans.DictItem">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="sort" property="sort" />
+        <result column="type_id" property="typeId" />
+        <result column="note" property="note" />
+        <result column="create_time" property="createTime" />
+        <result column="create_uid" property="createUid" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_uid" property="updateUid" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+</mapper>

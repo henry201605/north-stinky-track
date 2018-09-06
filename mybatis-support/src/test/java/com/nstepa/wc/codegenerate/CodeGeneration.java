@@ -1,4 +1,4 @@
-package com.nstepa.wc.mybatis.codegenerate;
+package com.nstepa.wc.codegenerate;
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
@@ -28,7 +28,7 @@ public class CodeGeneration {
 
 		// 全局配置
 		GlobalConfig gc = new GlobalConfig();
-		gc.setOutputDir("d://code");
+		gc.setOutputDir("d://code1");
 		gc.setFileOverride(true);
 		gc.setActiveRecord(false);// 不需要ActiveRecord特性的请改为false
 		gc.setEnableCache(false);// XML 二级缓存
@@ -37,7 +37,7 @@ public class CodeGeneration {
 		gc.setAuthor("henry");// 作者
 
 		// 自定义文件命名，注意 %s 会自动填充表实体属性！
-		gc.setControllerName("%sAction");
+		gc.setControllerName("%sController");
 		gc.setServiceName("%sService");
 		gc.setServiceImplName("%sServiceImpl");
 		gc.setMapperName("%sMapper");
@@ -48,16 +48,16 @@ public class CodeGeneration {
 		DataSourceConfig dsc = new DataSourceConfig();
 		dsc.setDbType(DbType.MYSQL);
 		dsc.setDriverName("com.mysql.jdbc.Driver");
-		dsc.setUsername("root");
-		dsc.setPassword("root");
-		dsc.setUrl("jdbc:mysql://127.0.0.1:3306/springboot");
+		dsc.setUsername("northst");
+		dsc.setPassword("northst");
+		dsc.setUrl("jdbc:mysql://58.87.92.106:3306/northst");
 		mpg.setDataSource(dsc);
 
 		// 策略配置
 		StrategyConfig strategy = new StrategyConfig();
-		strategy.setTablePrefix(new String[] { "t_" });// 此处可以修改为您的表前缀
+		strategy.setTablePrefix(new String[] { "b_","log_","sys_"});// 此处可以修改为您的表前缀
 		strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-		strategy.setInclude(new String[] { "t_area" }); // 需要生成的表
+//		strategy.setInclude(new String[] { "t_area" }); // 需要生成的表
 
 		strategy.setSuperServiceClass(null);
 		strategy.setSuperServiceImplClass(null);
@@ -72,7 +72,7 @@ public class CodeGeneration {
 		pc.setService("service");
 		pc.setServiceImpl("serviceImpl");
 		pc.setMapper("mapper");
-		pc.setEntity("entity");
+		pc.setEntity("beans");
 		pc.setXml("xml");
 		mpg.setPackageInfo(pc);
 

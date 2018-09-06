@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -16,21 +17,21 @@ import java.util.Date;
  * @author henry
  * @since 2018-09-06
  */
-@TableName("sys_user")
-public class User implements Serializable {
+@TableName("b_upload_advice")
+public class UploadAdvice implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 用户Id
+     * Id
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
     /**
-     * 微信openId
+     * 用户id
      */
-    @TableField("user_key")
-    private String userKey;
+    @TableField("user_id")
+    private Integer userId;
     /**
      * 微信昵称
      */
@@ -41,14 +42,13 @@ public class User implements Serializable {
      */
     private String telephone;
     /**
-     * 家庭区域表id
+     * 经度
      */
-    @TableField("home_area")
-    private Integer homeArea;
+    private BigDecimal longitude;
     /**
-     * 地址
+     * 纬度
      */
-    private String address;
+    private BigDecimal latitude;
     /**
      * 备注
      */
@@ -57,6 +57,15 @@ public class User implements Serializable {
     private Date createTime;
     @TableField("create_uid")
     private Integer createUid;
+    @TableField("update_time")
+    private Date updateTime;
+    @TableField("update_uid")
+    private Integer updateUid;
+    /**
+     * 假删除标识:0:未删除;1:删除
+     */
+    @TableField("del_flag")
+    private Integer delFlag;
 
 
     public Integer getId() {
@@ -67,12 +76,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getUserKey() {
-        return userKey;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUserKey(String userKey) {
-        this.userKey = userKey;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
@@ -91,20 +100,20 @@ public class User implements Serializable {
         this.telephone = telephone;
     }
 
-    public Integer getHomeArea() {
-        return homeArea;
+    public BigDecimal getLongitude() {
+        return longitude;
     }
 
-    public void setHomeArea(Integer homeArea) {
-        this.homeArea = homeArea;
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
     }
 
-    public String getAddress() {
-        return address;
+    public BigDecimal getLatitude() {
+        return latitude;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
     }
 
     public String getNote() {
@@ -131,18 +140,45 @@ public class User implements Serializable {
         this.createUid = createUid;
     }
 
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Integer getUpdateUid() {
+        return updateUid;
+    }
+
+    public void setUpdateUid(Integer updateUid) {
+        this.updateUid = updateUid;
+    }
+
+    public Integer getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(Integer delFlag) {
+        this.delFlag = delFlag;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
+        return "UploadAdvice{" +
         ", id=" + id +
-        ", userKey=" + userKey +
+        ", userId=" + userId +
         ", userName=" + userName +
         ", telephone=" + telephone +
-        ", homeArea=" + homeArea +
-        ", address=" + address +
+        ", longitude=" + longitude +
+        ", latitude=" + latitude +
         ", note=" + note +
         ", createTime=" + createTime +
         ", createUid=" + createUid +
+        ", updateTime=" + updateTime +
+        ", updateUid=" + updateUid +
+        ", delFlag=" + delFlag +
         "}";
     }
 }
