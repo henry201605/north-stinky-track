@@ -127,3 +127,33 @@ CREATE TABLE `sys_user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_sys_user_user_key` (`user_key`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for sys_area
+-- ----------------------------
+CREATE TABLE `sys_area` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '区域ID',
+  `name` varchar(100) NOT NULL COMMENT '区域名称',
+  `code` varchar(30) NOT NULL COMMENT '区域代码',
+  `polygon` varchar(30) DEFAULT NULL COMMENT '区域多边形',
+  `center_x` decimal(15,10) DEFAULT NULL COMMENT '中心x坐标',
+  `center_y` decimal(15,10) DEFAULT NULL COMMENT '中心y坐标',
+  `parent_id` text COMMENT '父级区域ID',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unq_code` (`code`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for b_area_weather
+-- ----------------------------
+CREATE TABLE `b_area_weather` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `temp` decimal(15,10) DEFAULT NULL COMMENT '温度',
+  `weather` varchar(30) DEFAULT NULL COMMENT '天气',
+  `wind_power` tinyint(2) DEFAULT NULL COMMENT '风力',
+  `wind_direct` tinyint(2) DEFAULT NULL COMMENT '风向',
+  `area_id` int(11) DEFAULT NULL COMMENT '区域ID',
+  `info_time` datetime COMMENT '天气信息时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_area_id` (`area_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
