@@ -73,8 +73,8 @@ CREATE TABLE `log_login` (
   `user_id` varchar(255) DEFAULT NULL,
   `login_time` datetime DEFAULT NULL,
   `login_ip` varchar(255) DEFAULT NULL COMMENT '登录Ip',
-  `longitude` varchar(255) DEFAULT NULL COMMENT '经度',
-  `latitude` varchar(255) DEFAULT NULL COMMENT '纬度'
+ `longitude` decimal(15,10) DEFAULT NULL COMMENT '经度',
+  `latitude` decimal(15,10) DEFAULT NULL COMMENT '纬度',
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
