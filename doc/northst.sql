@@ -40,7 +40,7 @@ CREATE TABLE `b_upload_advice` (
 -- Table structure for b_upload_stinky
 -- ----------------------------
 CREATE TABLE `b_upload_stinky` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id',
   `wind_direct` varchar(50) DEFAULT NULL COMMENT '风向',
   `wind_power` varchar(20) DEFAULT NULL COMMENT '风力',
   `weather` varchar(255) DEFAULT NULL COMMENT '天气',
@@ -69,19 +69,20 @@ CREATE TABLE `b_upload_stinky` (
 -- Table structure for log_login
 -- ----------------------------
 CREATE TABLE `log_login` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id',
   `user_id` varchar(255) DEFAULT NULL,
   `login_time` datetime DEFAULT NULL,
   `login_ip` varchar(255) DEFAULT NULL COMMENT '登录Ip',
  `longitude` decimal(15,10) DEFAULT NULL COMMENT '经度',
   `latitude` decimal(15,10) DEFAULT NULL COMMENT '纬度',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for sys_dict_item
 -- ----------------------------
 CREATE TABLE `sys_dict_item` (
-  `id` int(11) NOT NULL COMMENT '主键',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `name` varchar(255) DEFAULT NULL COMMENT '字典内容',
   `sort` int(11) DEFAULT NULL COMMENT '序号',
   `type_id` int(11) DEFAULT NULL COMMENT '类型id',
@@ -99,7 +100,7 @@ CREATE TABLE `sys_dict_item` (
 -- Table structure for sys_dict_type
 -- ----------------------------
 CREATE TABLE `sys_dict_type` (
-  `id` int(11) NOT NULL COMMENT '主键',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `name` varchar(255) DEFAULT NULL COMMENT '字典类型名称',
   `status` int(11) DEFAULT NULL COMMENT '状态',
   `note` varchar(255) DEFAULT NULL COMMENT '字典的备注说明',
@@ -135,10 +136,10 @@ CREATE TABLE `sys_area` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '区域ID',
   `name` varchar(100) NOT NULL COMMENT '区域名称',
   `code` varchar(30) NOT NULL COMMENT '区域代码',
-  `polygon` varchar(30) DEFAULT NULL COMMENT '区域多边形',
-  `center_x` decimal(15,10) DEFAULT NULL COMMENT '中心x坐标',
-  `center_y` decimal(15,10) DEFAULT NULL COMMENT '中心y坐标',
-  `parent_id` text COMMENT '父级区域ID',
+  `polygon` varchar(30) DEFAULT NULL COMMENT '区域坐标点集合',
+  `center_x` decimal(15,10) DEFAULT NULL COMMENT '区域中心位置的坐标经度',
+  `center_y` decimal(15,10) DEFAULT NULL COMMENT '坐标纬度',
+  `parent_id` text COMMENT '上级区域ID',
   PRIMARY KEY (`id`),
   UNIQUE KEY `unq_code` (`code`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
