@@ -1,33 +1,14 @@
-spring.profiles.active: dev
+spring:
+  profiles:
+    active: henry
+    include:
+      - mybatis
+      - redis
 
-spring.profiles.include:
-  - mybatis
-
-# Server settings
-server:
-  port: 8083
-
-server.context-path: /northst
-
----
-spring.profiles: dev
-
-spring.profiles.include:
-  - db-dev
-
----
-spring.profiles: test
-spring.profiles.include:
-  - db-test
-
----
-spring.profiles: prod
-
-spring.profiles.include:
-  - db-prod
-
----
-spring.profiles: henry
-
-spring.profiles.include:
-  - db-henry
+#微信配置相关
+weixin:
+  config:
+    appId: wxf9a70d30a6944069185
+    secret: b735fc511979462ef3e2dd7f8e80ab581459
+  code2session:
+    url: https://api.weixin.qq.com/sns/jscode2session?appid={appId}&secret={secret}&js_code={code}&grant_type=authorization_code

@@ -1,6 +1,8 @@
-package com.nstepa.wc.admin.util;
+package com.nstepa.wc.commons.utils;
 
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class DateUtil {
 

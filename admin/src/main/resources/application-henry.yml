@@ -1,0 +1,10 @@
+# Server settings
+server:
+  port: 8083
+  context-path: /northst
+
+spring:
+  profiles:
+    include:
+      - db-henry
+      - redis-henry

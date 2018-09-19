@@ -1,5 +1,6 @@
 package com.nstepa.wc.redis.support;
 
+import com.nstepa.wc.commons.utils.NepaStrings;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

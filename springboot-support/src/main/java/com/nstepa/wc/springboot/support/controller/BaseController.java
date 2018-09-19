@@ -70,7 +70,7 @@ public abstract class BaseController {
      * @param <T>
      * @return
      */
-    public static <T> Response ok(T body) {
+    public static <T> Response success(T body) {
         return statusResponse(ResponseCode.OK, body);
     }
 
@@ -80,7 +80,7 @@ public abstract class BaseController {
      *
      * @return
      */
-    public static Response ok() {
+    public static Response success() {
         return statusResponse(ResponseCode.OK, null);
     }
 
@@ -97,13 +97,5 @@ public abstract class BaseController {
     }
     public static <T> Response statusResponse(int status, String message, T data) {
         return new Response(status, message, data);
-    }
-
-    public static <T> Response success(ResponseCode responseCode, T data) {
-        return new Response(responseCode.getCode(), responseCode.getMsg(), data);
-    }
-
-    public static Response success(ResponseCode responseCode){
-        return new Response(responseCode.getCode(), responseCode.getMsg());
     }
 }

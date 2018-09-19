@@ -1,0 +1,10 @@
+# Server settings
+server:
+  port: 8081
+  context-path: /northst
+
+spring:
+  profiles:
+    include:
+      - db-dev
+      - redis-dev

@@ -39,6 +39,6 @@ public class OKRest extends BaseController {
             throw new NepaException(333, "");
         }
 
-        return ok("项目正常运行，date:" + date);
+        return success("项目正常运行，date:" + date);
     }
 }

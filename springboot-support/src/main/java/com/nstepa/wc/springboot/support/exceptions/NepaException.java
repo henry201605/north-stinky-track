@@ -13,7 +13,6 @@ public class NepaException extends RuntimeException {
         super(responseCode.getMsg());
         this.code = responseCode.getCode();
     }
-
     public NepaException(int code, String msg) {
         super(msg);
         this.code = code;

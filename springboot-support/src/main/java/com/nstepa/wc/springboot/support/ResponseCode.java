@@ -11,7 +11,9 @@ public enum ResponseCode {
     NOT_FOUND(HttpStatus.NOT_FOUND.value(), HttpStatus.NOT_FOUND.getReasonPhrase()),
     METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED.value(), HttpStatus.METHOD_NOT_ALLOWED.getReasonPhrase()),
     NOT_LOGIN(600, "Not Login"),
-
+    FAIL_REQUEST_WX_SERVER(601,"请求微信服务器失败"),
+    ERROR_RESPONSE_WX_SERVER(602,"微信服务器返回错误"),
+    NOT_3RD_SESSION(300,"获取不到3rd_session"),
     ;
 
     private int code;
