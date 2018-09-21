@@ -40,12 +40,6 @@ public class UploadStinkyServiceImpl extends ServiceImpl<UploadStinkyMapper, Upl
 		Integer userId = UserRequest.getCurrentUser().getId();
 		validateUpload(latitude, longitude, userId);
 
-		/**
-		 * 上传一次后，同一地点（1000米内）1个小时才能再上传1次，
-		 * 除非换地方了，超过1公里才能连续上传
-		 * 校验在一个小时内是否已经上报过
-		 */
-
 		UploadStinky uploadStinky = new UploadStinky();
 		uploadStinky.setFeelType(stinkyInfoForm.getFeelType());
 		uploadStinky.setStinkyType(stinkyInfoForm.getStinkyType());
