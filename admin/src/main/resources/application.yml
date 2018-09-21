@@ -12,3 +12,6 @@ weixin:
     secret: b735fc511979462ef3e2dd7f8e80ab581459
   code2session:
     url: https://api.weixin.qq.com/sns/jscode2session?appid={appId}&secret={secret}&js_code={code}&grant_type=authorization_code
+
+upload:
+  distanceconfig: 1

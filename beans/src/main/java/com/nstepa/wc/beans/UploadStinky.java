@@ -2,9 +2,10 @@ package com.nstepa.wc.beans;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.FieldFill;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -46,11 +47,11 @@ public class UploadStinky implements Serializable {
     /**
      * 经度
      */
-    private BigDecimal longitude;
+    private double longitude;
     /**
      * 纬度
      */
-    private BigDecimal latitude;
+    private double latitude;
     /**
      * 恶臭-sys_dict_item_id
      */
@@ -78,11 +79,13 @@ public class UploadStinky implements Serializable {
     @TableField("temp_fied2")
     private String tempFied2;
     private String note;
-    @TableField("create_time")
+    @TableField(fill= FieldFill.INSERT)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createTime;
     @TableField("create_uid")
     private Integer createUid;
-    @TableField("update_time")
+    @TableField(fill= FieldFill.INSERT_UPDATE)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date updateTime;
     @TableField("update_uid")
     private Integer updateUid;
@@ -141,19 +144,19 @@ public class UploadStinky implements Serializable {
         this.humidity = humidity;
     }
 
-    public BigDecimal getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(BigDecimal longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
-    public BigDecimal getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(BigDecimal latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 

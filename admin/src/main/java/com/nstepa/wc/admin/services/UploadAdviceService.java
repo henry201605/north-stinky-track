@@ -2,6 +2,7 @@ package com.nstepa.wc.admin.services;
 
 
 import com.baomidou.mybatisplus.service.IService;
+import com.nstepa.wc.admin.form.StinkyInfoForm;
 import com.nstepa.wc.beans.UploadAdvice;
 
 /**

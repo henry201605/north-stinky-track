@@ -1,5 +1,6 @@
 package com.nstepa.wc.commons.utils;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -70,5 +71,12 @@ public class DateUtil {
         date.setHours(0);
         date.setMinutes(0);
         date.setSeconds(0);
+    }
+
+    public static Date beforeOneHourToNowDate(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, calendar.get(Calendar.HOUR_OF_DAY) - 1);
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return calendar.getTime();
     }
 }
