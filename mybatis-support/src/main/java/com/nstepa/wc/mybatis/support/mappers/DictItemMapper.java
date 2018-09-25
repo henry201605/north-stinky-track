@@ -3,6 +3,9 @@ package com.nstepa.wc.mybatis.support.mappers;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.nstepa.wc.beans.DictItem;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -14,4 +17,5 @@ import com.nstepa.wc.beans.DictItem;
  */
 public interface DictItemMapper extends BaseMapper<DictItem> {
 
+	List<DictItem> getDictItemByType(@Param("dictType") String dictType);
 }

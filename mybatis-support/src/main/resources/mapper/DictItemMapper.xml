@@ -3,7 +3,7 @@
 <mapper namespace="com.nstepa.wc.mybatis.support.mappers.DictItemMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.nstepa.wc.beans.DictItem">
+    <resultMap id="DictItemMap" type="com.nstepa.wc.beans.DictItem">
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="sort" property="sort" />
@@ -16,4 +16,21 @@
         <result column="del_flag" property="delFlag" />
     </resultMap>
 
+    <select id="getDictItemByType"   resultType="com.nstepa.wc.beans.DictItem">
+        SELECT
+            sdi.id,
+            sdi.`name`,
+            sdi.sort,
+            sdi.note
+        from
+             sys_dict_type as sdt
+        LEFT JOIN sys_dict_item as sdi ON sdt.id = sdi.type_id
+        where
+            sdt.del_flag=0
+        and sdi.del_flag=0
+        <if test="dictType != null and dictType !=''">
+            and sdt.`name`=#{dictType}
+        </if>
+        ORDER BY sdi.sort asc
+    </select>
 </mapper>
