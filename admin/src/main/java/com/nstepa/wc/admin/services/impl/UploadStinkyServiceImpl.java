@@ -1,6 +1,7 @@
 package com.nstepa.wc.admin.services.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.nstepa.wc.admin.form.StinkyInfoForm;
 import com.nstepa.wc.admin.services.UploadStinkyService;
@@ -53,6 +54,17 @@ public class UploadStinkyServiceImpl extends ServiceImpl<UploadStinkyMapper, Upl
 //		uploadStinky.setUserId(userId);
 		uploadStinky.setCreateUid(userId);
 		insert(uploadStinky);
+	}
+
+	@Override
+	public List<UploadStinky> getStinkyInfoByPageSize(Integer nowPage, int pageSize) {
+		Page<UploadStinky> uploadStinkyPage = selectPage(new Page<UploadStinky>(nowPage, pageSize),
+				new EntityWrapper<UploadStinky>()
+						.eq("create_uid", UserRequest.getCurrentUser().getId())
+						.eq("del_flag", 0)
+						.orderBy("create_time",false)
+		);
+		return uploadStinkyPage.getRecords();
 	}
 
 	private void validateUpload(double latitude, double longitude, Integer userId) {

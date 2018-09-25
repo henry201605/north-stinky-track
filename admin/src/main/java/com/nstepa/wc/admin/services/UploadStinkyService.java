@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.service.IService;
 import com.nstepa.wc.admin.form.StinkyInfoForm;
 import com.nstepa.wc.beans.UploadStinky;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -20,4 +22,5 @@ public interface UploadStinkyService extends IService<UploadStinky> {
 	 */
 	void uploadStinkyInfo(StinkyInfoForm stinkyInfoForm);
 
+	List<UploadStinky> getStinkyInfoByPageSize(Integer nowPage, int pageSize);
 }
