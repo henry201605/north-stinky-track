@@ -37,7 +37,7 @@ public class StinkyInfoForm {
     private double latitude;
 
     @ApiModelProperty(value = "发生时间", required = true)
-    @NotNull(message = "发生时间不能为空")
+//    @NotNull(message = "发生时间不能为空")
     private Date occurTime;
 
     @ApiModelProperty(value = "备注", required = true)

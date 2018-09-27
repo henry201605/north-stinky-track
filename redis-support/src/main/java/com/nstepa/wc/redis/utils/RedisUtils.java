@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
+import redis.clients.jedis.Jedis;
 
 import java.util.List;
 import java.util.Map;
@@ -382,6 +383,37 @@ public class RedisUtils {
 			return 0;
 		}
 	}
+	//===============================zset=================================
+
+	/**
+	 *
+	 * @param key
+	 * @param value
+	 * @param score
+	 * @return
+	 */
+	public boolean sGet(String key, String value, double score){
+		try {
+			return redisTemplate.opsForZSet().add(key, value, score);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean sGet(String key, String value, double score,long time) {
+		try {
+			redisTemplate.opsForZSet().add(key, value, score);
+			if(time>0){
+				expire(key, time);
+			}
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
 	//===============================list=================================
 
 	/**
@@ -531,4 +563,12 @@ public class RedisUtils {
 		}
 	}
 
+	public Set<String> searchLike(String likeKey) {
+		try {
+			return redisTemplate.keys(likeKey + "*");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
